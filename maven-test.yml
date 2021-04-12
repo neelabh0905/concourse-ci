@@ -1,0 +1,19 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: maven
+    tag: 3.8-jdk-11-slim
+
+inputs:
+  - name: concourse-build
+
+run:
+  path: "mvn"
+  args:
+    - -f
+    - concourse-build/pom.xml
+    - clean
+    - test

@@ -1,0 +1,34 @@
+resources:
+  - name: concourse-build
+    type: git
+    icon: github
+    source:
+      uri: { git repo path }
+      branch: master
+
+  - name: image-build
+    type: docker-image
+    icon: docker
+    source:
+      repository: { repoPath }
+      username: { username }
+      password: { password }
+
+jobs:
+  - name: build-test
+    plan:
+      - get: concourse-build
+        trigger: true
+      - task: mvn-test
+        file: "concourse-build/maven-test.yml"
+
+  - name: docker-image-build
+    serial: true
+    plan:
+      - get: concourse-build
+        trigger: true
+      - task: mvn-package
+        file: "concourse-build/maven-package.yml"
+      - put : image-build
+        params:
+          build: concourse-build-out
