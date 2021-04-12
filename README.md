@@ -9,7 +9,7 @@ Once done then follow the below steps
 
 => Go to ci folder in project, open terminal and execute `docker-compose up`.
 
-=> Once docker is up and images are pulled and running (concourse and postgres)
+=> Once docker is up and images are pulled and running (concourse and postgres). Install Fly CLI.
 
 Open http://localhost:8080 ,i.e. concourse
 
@@ -19,6 +19,7 @@ Open http://localhost:8080 ,i.e. concourse
 4) At last execute `fly -t ps set-pipeline -c pipeline.yml -p pipeline`. This will configure your build.
 
 On either committing the code in git repo or refreshing the concourse pipeline, build will auto-trigger.
+
 
 **************************************END***************************************
 
