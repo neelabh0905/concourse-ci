@@ -4,7 +4,7 @@
 
 Go to ci folder in project, open pipeline.yml in any IDE.
 
-Update the fields, like github reppo path, docker hub repo path,username and password
+Update the fields, like github repo path, docker hub repo path,username and password
 Once done then follow the below steps
 
 => Go to ci folder in project, open terminal and execute `docker-compose up`.
