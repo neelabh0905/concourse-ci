@@ -3,16 +3,16 @@ resources:
     type: git
     icon: github
     source:
-      uri: { git repo path }
+      uri: https://github.com/neelabh0905/concourse-ci.git
       branch: master
 
   - name: image-build
     type: docker-image
     icon: docker
     source:
-      repository: { repoPath }
-      username: { username }
-      password: { password }
+      repository: neelabh24/mvnimg
+      username: ((registry-username))
+      password: ((registry-password))
 
 jobs:
   - name: build-test
